@@ -2,6 +2,10 @@
 
 This module manages resource creation using puppet defined types in foreman
 
+### Pre-requisites: ###
+Puppet master should be setup to conform to Puppet Future Parser requriements as mentioned in
+https://docs.puppetlabs.com/puppet/3/reference/experiments_future.html#enabling-the-future-parser
+
 ### Parameters: ### 
 
  resource_name - any valid defined type in puppet that is available in the puppet module path
