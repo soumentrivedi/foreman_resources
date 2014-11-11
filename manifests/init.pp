@@ -44,5 +44,5 @@
 # }
 #
 class foreman_resources ($resources_hash = undef) {
-  each($resources_hash) |$resource_name,$resource_params| { create_resources($resource_name, $resource_params)}
+  $resources_hash.each |$resource_name, $resource_params| { create_resources($resource_name, $resource_params) }
 }
