@@ -34,15 +34,17 @@
 #  , 
 # }
 #
-# $resources_hash = [
+# $resources_hash = {
 #   'postgresql::server::pg_hba_rule' => $postgresql_hba_hash,
 #   'postgresql::server::db' => $postgresql_db_hash,
-# ]
+# }
 #
 # class { 'foreman_resources':
 #   resources_hash => $resources_hash, 
 # }
 #
-class foreman_resources ($resources_hash = []) {
-  each($resources_hash) |$resource_name, $resource_params| { create_resources($resource_name, $resource_params) }
+class foreman_resources ($resources_hash = undef) {
+  each($resources_hash) |$resource_name, $resource_params| { 
+    create_resources($resource_name, $resource_params) 
+   }
 }
