@@ -3,9 +3,7 @@
 # This module manages resource creation using puppet defined types in foreman
 #
 # Parameters: 
-# resource_name - any valid defined type in puppet that is available in the puppet module path
-# parameters - Parameter hash that needs to be passed into the relevant resource during creation
-# default_values - [OPTIONAL] default values for the parameters to be passed during resource creation
+# resources_hash - a hash map of resource names and parameters
 #
 # Actions:
 # create_resource - using puppet 'create_resource' function to create valid puppet resources
