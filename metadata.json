@@ -1,0 +1,13 @@
+{
+  "author": "Souman Trivedi",
+  "dependencies": [],
+  "license": "",
+  "name": "iaac-foreman_resources",
+  "operatingsystem_support": [],
+  "project_page": "",
+  "requirements": [],
+  "source": "",
+  "summary": "This is an utility to declare & use puppet defined types in Foreman through create_resources function.",
+  "tags": [],
+  "version": "0.1.0"
+}

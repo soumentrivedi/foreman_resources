@@ -1,0 +1,3 @@
+# foreman_resources #
+
+This is the foreman_resources module. It provides...

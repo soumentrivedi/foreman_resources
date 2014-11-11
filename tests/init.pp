@@ -1,0 +1,1 @@
+include foreman_resources
