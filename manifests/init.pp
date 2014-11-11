@@ -13,7 +13,7 @@
 # Requires: see Modulefile
 #
 # Sample Usage: Creating a Postgresql hba rule
-# $postgresql_params_hash = {
+# $postgresql_hba_hash = {
 #    'allow access from 10.1.172.12'  => {
 #      description => "allow access from 10.1.172.12", 
 #      type => 'host', 
@@ -26,11 +26,25 @@
 #    ,
 # }
 #
-# class { 'foreman_resources':
-#   resource_name => "postgresql::server::pg_hba_rule",
-#   parameters    => "$postgresql_params_hash", 
+# $postgresql_db_hash = {
+#   'mydatabasename' => {
+#      user => 'mydatabaseuser', 
+#      password => postgresql_password('mydatabaseuser', 'mypassword'),
+#    }
+#  , 
 # }
 #
-class foreman_resources ($resource_name = undef, $parameters = undef, $default_values = undef) {
-  create_resources($resource_name, $parameters, $default_values)
+# $resource_hash = {
+#   'postgresql::server::pg_hba_rule' => $postgresql_hba_hash,
+#   'postgresql::server::db' => $postgresql_db_hash,
+# }
+#
+# class { 'foreman_resources':
+#   resource_hash => $resource_hash, 
+# }
+#
+class foreman_resources ($resources_hash = undef) {
+  $resources_hash.each |$resource_name, $resource_params| {
+   create_resources($resource_name, $resource_params)  
+  }
 }
