@@ -48,9 +48,9 @@ https://docs.puppetlabs.com/puppet/3/reference/experiments_future.html#enabling-
    resources_hash => $resources_hash, 
  }
 ```
-### Sample Usage: Creating a Postgresql hba rule (through Hiera/Foreman Resources) ###
+### Sample Usage: Creating a Postgresql hba rule (through Foreman Resources) ###
  
-##### In hieradata yml #####
+##### In Foreman Resource resources_hash value as yml #####
 ```
 ---
 postgresql::server::pg_hba_rule:
@@ -67,9 +67,3 @@ postgresql::server::db:
     user: mydatabaseuser
     password: postgresql_password(mydatabaseuser,mypassword)
 ```
-##### Declaring through foreman resources #####
-``` 
- class { 'foreman_resources':
-   resources_hash => $resources_hash, 
- }
-```  
