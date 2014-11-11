@@ -16,7 +16,7 @@ https://docs.puppetlabs.com/puppet/3/reference/experiments_future.html#enabling-
 
  create_resource - using puppet 'create_resource' function to create valid puppet resources
 
-### Sample Usage: Creating a Postgresql hba rule ###
+### Sample Usage: Creating a Postgresql hba rule (through puppet manifest) ###
  
  $postgresql_hba_hash = {
     'allow access from 10.1.172.12'  => {
@@ -47,4 +47,27 @@ https://docs.puppetlabs.com/puppet/3/reference/experiments_future.html#enabling-
  class { 'foreman_resources':
    resources_hash => $resources_hash, 
  }
+
+### Sample Usage: Creating a Postgresql hba rule (through Hiera/Foreman Resources) ###
  
+##### In hieradata yml #####
+---
+postgresql::server::pg_hba_rule:
+  allow access from 10.1.172.12:
+    description: allow access from 10.1.172.12
+    type: host
+    database: all
+    user: all
+    address: 10.1.172.12/32
+    auth_method: md5
+    order: 2
+postgresql::server::db:
+  mydatabasename:
+    user: mydatabaseuser
+    password: postgresql_password(mydatabaseuser,mypassword)
+
+##### Declaring through foreman resources #####
+ class { 'foreman_resources':
+   resources_hash => $resources_hash, 
+ }
+  
